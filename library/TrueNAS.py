@@ -34,7 +34,7 @@ options:
 #     - my_namespace.my_collection.my_doc_fragment_name
 
 author:
-    - Your Name (@yourGitHubHandle)
+    - Buyse Tjörven (@BuyseTjorven)
 '''
 
 EXAMPLES = r'''
