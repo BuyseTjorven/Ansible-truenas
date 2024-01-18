@@ -1,20 +1,17 @@
-import json
 import requests
-r = requests.post(
-  'ws://192.168.32.153/websocket',
-  auth=('admin', 'tjorven'),
-  headers={'Content-Type': 'application/json'},
-  verify=False,
-  data=json.dumps({
-       'bsdusr_uid': '1100',
-       'bsdusr_username': 'myuser',
-       'bsdusr_mode': '755',
-       'bsdusr_creategroup': 'True',
-       'bsdusr_password': '12345',
-       'bsdusr_shell': '/usr/local/bin/bash',
-       'bsdusr_full_name': 'Full Name',
-       'bsdusr_email': 'name@provider.com',
-   })
- )
-print(r.text)
+import json
 
+url = 'http://192.168.32.153/api/v2.0/auth/check_password'
+headers = {
+    'accept': 'application/json',
+    'Content-Type': 'application/json',
+    'Authorization': 'Bearer 1-MAKPeh2hHaWvyAO4gS3RME9R0cPJFzUOfU4uko6UcklUbNpKM9pqHZMNioGqxNwY'
+}
+data = {
+    "username": "admin",
+    "password": "tjorven"
+}
+
+response = requests.post(url, headers=headers, data=json.dumps(data))
+
+print(response.text)
