@@ -8,7 +8,7 @@ class Startup(object):
        self._hostname = hostname
        self._user = user
        self._secret = secret
-       self._ep = 'http://%s/api/v1.0' % hostname
+       self._ep = 'http://%s/api/v2.0' % hostname
   def request(self, resource, method='GET', data=None):
        if data is None:
            data = ''
@@ -45,11 +45,11 @@ def create_dataset(self):
            'name': 'MyShare',
        })
 
-def create_cifs_share(self):
-       self.request('sharing/cifs', method='POST', data={
-           'cifs_name': 'My Test Share',
-           'cifs_path': '/mnt/tank/MyShare',
-           'cifs_guestonly': True
+def create_smb_share(self):
+       self.request('sharing/smb', method='POST', data={
+           'purpose': 'My Test Share',
+           'path': '/mnt/tank/MyShare',
+           'guestok': True
 })
        
 def service_start(self, name):
@@ -57,5 +57,6 @@ def service_start(self, name):
            'srv_enable': True,
 
 })
-       
+
+
 
