@@ -14,3 +14,15 @@ content-type: application/json
     "name": "sample",
     "time": "Wed, 21 Oct 2015 18:27:50 GMT"
 }
+
+###
+
+curl -X 'POST' \
+  'http://192.168.32.153/api/v2.0/auth/check_password' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -H "Authorization: Bearer 1-MAKPeh2hHaWvyAO4gS3RME9R0cPJFzUOfU4uko6UcklUbNpKM9pqHZMNioGqxNwY" \
+  -d '{
+  "username": "admin",
+  "password": "tjorven"
+}'
