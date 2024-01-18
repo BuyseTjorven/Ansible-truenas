@@ -1,5 +1,7 @@
 import argparse
 import sys
+import requests
+import json
 
 class Startup(object):
   def __init__(self, hostname, user, secret):
