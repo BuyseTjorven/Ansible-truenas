@@ -18,11 +18,75 @@ content-type: application/json
 ###
 
 curl -X 'POST' \
-  'http://192.168.32.153/api/v2.0/auth/check_password' \
+  'http://192.168.32.154/api/v2.0/auth/check_password' \
   -H 'accept: application/json' \
   -H 'Content-Type: application/json' \
-  -H "Authorization: Bearer 1-MAKPeh2hHaWvyAO4gS3RME9R0cPJFzUOfU4uko6UcklUbNpKM9pqHZMNioGqxNwY" \
+  -H "Authorization: Bearer 1-unUUaD8po4VnBdFBIJGBnzJA1Abom2LGyuULys9MSggoNV8DFik2Uql1jPHwcOiU" \
   -d '{
   "username": "admin",
   "password": "tjorven"
+}'
+
+###
+
+curl -X 'GET' \
+  'http://192.168.32.154/api/v2.0/disk' \
+    -H 'accept: application/json' \
+    -H 'Content-Type: application/json' \
+    -H "Authorization: Bearer 1-unUUaD8po4VnBdFBIJGBnzJA1Abom2LGyuULys9MSggoNV8DFik2Uql1jPHwcOiU" \
+    -d '{
+}'
+
+###
+
+curl -X 'GET' \
+  'http://192.168.32.154/api/v2.0/pool' \
+    -H 'accept: application/json' \
+    -H 'Content-Type: application/json' \
+    -H "Authorization: Bearer 1-unUUaD8po4VnBdFBIJGBnzJA1Abom2LGyuULys9MSggoNV8DFik2Uql1jPHwcOiU" \
+    -d '{
+}'
+
+###
+
+curl -X 'POST' \
+  'http://192.168.32.154/api/v2.0/pool' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -H "Authorization: Bearer 1-3bkv5czpXcODKCtX5Lo95ua5N9DTzJ3y99qHhWcW4ejOin8ETWaor7rPIFGV7UDB" \
+  -d '{
+  "name": "jippieee",
+  "encryption": false,
+  "deduplication": null,
+  "checksum": null,
+  "topology": {
+    "data": [
+      {
+        "type": "STRIPE",
+        "disks": [
+          "sdb","sdc"
+        ]
+      }
+    ],
+    "cache": [
+      {
+        "type": "STRIPE",
+        "disks": [
+          
+        ]
+      }
+    ],
+    "log": [
+      {
+        "type": "STRIPE",
+        "disks": [
+          
+        ]
+      }
+    ],
+    "spares": [
+      
+    ]
+  },
+  "allow_duplicate_serials": true
 }'
