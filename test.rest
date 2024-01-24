@@ -90,3 +90,30 @@ curl -X 'POST' \
   },
   "allow_duplicate_serials": true
 }'
+
+###
+
+curl -X 'GET' \
+  'http://192.168.32.154/api/v2.0/chart/release' \
+    -H 'accept: application/json' \
+    -H 'Content-Type: application/json' \
+    -H "Authorization: Bearer 1-3bkv5czpXcODKCtX5Lo95ua5N9DTzJ3y99qHhWcW4ejOin8ETWaor7rPIFGV7UDB" \
+    -d '{
+}'
+
+###
+#default login = admin wachtwoord = changeme
+curl -X POST "http://192.168.32.154/api/v2.0/chart/release" \
+      -H 'accept: application/json' \
+     -H "Content-Type: application/json" \
+     -H "Authorization: Bearer 1-3bkv5czpXcODKCtX5Lo95ua5N9DTzJ3y99qHhWcW4ejOin8ETWaor7rPIFGV7UDB" \
+     -d '{
+           "catalog": "TRUENAS",
+           "item": "nextcloud",
+           "release_name": "nextcloud-release",
+           "train": "charts",
+           "version": "1.6.56",
+           "values": {
+              # Additional configuration parameters specific to your Nextcloud setup
+           }
+         }'
